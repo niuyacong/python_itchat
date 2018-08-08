@@ -26,7 +26,7 @@ class Languages:
     ENG='ENG'
 
 
-def img_to_str(image_path="2.jpg",lang=Languages.CHT):
+def img_to_str(image_path="1.jpg",lang=Languages.CHS):
     return pytesseract.image_to_string(Image.open(image_path),lang)
 
 print(img_to_str())
@@ -40,13 +40,11 @@ https://cloud.baidu.com
 """
 from aip import AipOcr
 
-# APP_ID = '你的 App ID'
-# API_KEY = '你的 Api Key'
-# SECRET_KEY = '你的 Secret Key'
+APP_ID = '你的 App ID'
+API_KEY = '你的 Api Key'
+SECRET_KEY = '你的 Secret Key'
 
-APP_ID = '11647195'
-API_KEY = '0DsQ0dXLoh4FVMlBrzRIt7Pe'
-SECRET_KEY = 'NrGhXK0Ke9FSWE1ZggNgVsuGvskbtE47'
+
 
 client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
 
@@ -55,7 +53,7 @@ def get_file_content(filePath):
     with open(filePath, 'rb') as fp:
         return fp.read()
 
-image = get_file_content('2.jpg')
+image = get_file_content('1.jpg')
 
 """ 调用通用文字识别, 图片参数为本地图片 """
 print(client.basicGeneral(image))
